@@ -1,0 +1,94 @@
+
+.group{
+  position:relative;
+  margin-bottom:45px; 
+  margin-top: 10%;
+  width: 50%;
+}
+
+input 				{
+  font-size:18px;
+  padding:10px 0 10px 0;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left: 0;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color: #e55d87;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height: 3px; 
+  width:0;
+  bottom: 15px;
+  position:absolute;
+  background: #e55d87;
+  background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+  background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+  background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  left: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:100%;
+  left: 0%;
+}
+
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { 
+    background: #e55d87;
+    background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+    background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+    background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+   }
+  to 	{ width:0; background:transparent; }
+}
+
+/* Responsiveness*/
+@media only screen and (max-height: 700px) {
+  .bar:before, .bar:after   {
+    content:'';
+    height: 2px;
+  }
+}
