@@ -90,7 +90,7 @@
                         }
                     ?>
                     <tfoot>
-                        <th onfocusout="on('overlay')" contenteditable="true">Add Product:</th>
+                        <th>Add Product:</th>
                         <th onfocusout="on('overlay')" contenteditable="true"></th>
                         <th onfocusout="on('overlay')" contenteditable="true"></th>
                         <th onfocusout="on('overlay')" contenteditable="true"></th>
