@@ -120,6 +120,30 @@ ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
+CREATE TABLE `order` (
+  `order_id` INT NOT NULL,
+  `order_quantity` INT NOT NULL,
+  `order_date` INT NOT NULL,
+  `order_status` TINYINT(1) NOT NULL,
+  `evaluated_by` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  PRIMARY KEY (`order_id`),
+  INDEX `fk_order_users_idx` (`user_id` ASC),
+  INDEX `fk_order_products1_idx` (`product_id` ASC),
+  CONSTRAINT `fk_order_users`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `sad_system`.`users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_order_products1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `sad_system`.`products` (`product_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
