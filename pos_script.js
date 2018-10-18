@@ -157,6 +157,7 @@ function orderedProducts(){
 		itemamount.appendChild(nodeamount);
 		var node1 = document.createElement("tr");
 		node1.setAttribute("id", itemNumber+1);
+		node1.setAttribute("onclick", "<script>alert('Clicked!')</script>");
 	    node1.appendChild(itemid);
 	    node1.appendChild(itemname);
 	    node1.appendChild(itemquantity);
