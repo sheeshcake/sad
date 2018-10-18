@@ -55,9 +55,17 @@
             <form action="javascript: off();">
                 <input type="number " id="quantity" placeholder="Input Quantity" autofocus>
             </form>
-            <button class="btn" onclick="javascript:off();"><span>GO</span></button>
+            <button class="btn" onclick="javascript:off('overlay');"><span>GO</span></button>
         </center>
     </div>
+    <!-- <div id="delete" class="delete">
+        <center>
+            <form action="javascript: off();">
+                <input type="text " id="delete" placeholder="Input Product Name or ID" autofocus>
+            </form>
+            <button class="btn" onclick="javascript:off('delete');"><span>GO</span></button>
+        </center>
+    </div> -->
     <div class="grid-container" id="main"> 
         <div class="item1" id="purchased" style="font-size: 20px;">
             <table class="table" id="table" border="0" style="width: 400px;">
@@ -96,6 +104,9 @@
         <div class="item3">
             <button style="width: 100%" onclick ="javascript: change(0); on();">
                 Done Transaction
+            </button>
+            <button style="width:100%;" onclick="javascript: change(2); on();">
+                Delete item
             </button>
         </div>
         <div class="item4">

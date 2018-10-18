@@ -18,7 +18,7 @@ function closeNav() {
 
 // Overlay Input
 function on() {
-    document.getElementById("overlay").style.display = "block";
+	document.getElementById("overlay").style.display = "block";
 }
 
 function off() {
@@ -33,19 +33,38 @@ function off() {
 function change(val){
 	var tag;
 	if(val == 1){
-		if(tag = document.getElementById("cash")){
+		if((tag = document.getElementById("cash")) || (tag = document.getElementById("delete"))){
 			tag.id = "quantity";
+			document.getElementById("quantity").type = "number";
 			tag.placeholder = "Input Quantity";
 		}
 	}
-	else{
-		if(tag = document.getElementById("quantity")){
+	else if(val == 0){
+		if((tag = document.getElementById("quantity")) || (tag = document.getElementById("delete"))){
 			tag.id = "cash";
+			document.getElementById("quantity").type = "number";
 			tag.placeholder = "Input Cash";
+		}
+	}
+	else{
+		if((tag = document.getElementById("quantity")) || (tag = document.getElementById("cash"))){
+			tag.id = "delete";
+			document.getElementById("quantity").type = "text";
+			tag.placeholder = "Input Product Name or ID";
 		}
 	}
 }
 
+
+
+//POS Delete Table Setion//
+function deleteOrder(){
+	var id = document.querySelectorAll("td:nth-child(1)");
+	var row = document.getElementById(parseInt(id[i].firstChild.data));
+	var parent = row.parentNode;
+	parent.removeChild(row);
+
+}
 
 
 //POS Table Section//
@@ -157,7 +176,7 @@ function orderedProducts(){
 		itemamount.appendChild(nodeamount);
 		var node1 = document.createElement("tr");
 		node1.setAttribute("id", itemNumber+1);
-		node1.setAttribute("onclick", "<script>alert('Clicked!')</script>");
+		node1.setAttribute("onclick", "javascript: change(1); on();");
 	    node1.appendChild(itemid);
 	    node1.appendChild(itemname);
 	    node1.appendChild(itemquantity);
@@ -278,3 +297,8 @@ function maxQuantity(){
 	document.getElementById("quantity").placeholder = "Input Quantity (max:" + p_quantity + ")";
 }
 
+
+function pay_order(){
+
+
+}
