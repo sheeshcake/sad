@@ -33,24 +33,31 @@ function off() {
 function change(val){
 	var tag;
 	if(val == 1){
-		if((tag = document.getElementById("cash")) || (tag = document.getElementById("delete"))){
+		if((tag = document.getElementById("cash").id) || (tag = document.getElementById("delete").id) || (tag = document.getElementById("cash").id)){
 			tag.id = "quantity";
 			document.getElementById("quantity").type = "number";
 			tag.placeholder = "Input Quantity";
 		}
 	}
 	else if(val == 0){
-		if((tag = document.getElementById("quantity")) || (tag = document.getElementById("delete"))){
+		if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("delete").id)){
 			tag.id = "cash";
 			document.getElementById("quantity").type = "number";
 			tag.placeholder = "Input Cash";
 		}
 	}
-	else{
-		if((tag = document.getElementById("quantity")) || (tag = document.getElementById("cash"))){
+	else if(val == 3){
+		if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("cash").id)){
 			tag.id = "delete";
 			document.getElementById("quantity").type = "text";
 			tag.placeholder = "Input Product Name or ID";
+		}
+	}
+	else{
+		if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("cash").id)){
+			tag.id = "delete";
+			document.getElementById(tag).type = "text";
+			tag.placeholder = "Input Product Name or ID to delete";
 		}
 	}
 }
@@ -246,7 +253,7 @@ function searchProduct(){
 				var node = document.createElement("button");
 				node.setAttribute("class", "item-button");
 				node.setAttribute("value" , product_details[i][0]);
-				node.setAttribute("value1", prod_quantity);
+				node.setAttribute("value1", p_quantity);
 				node.setAttribute("type", "submit");
 				node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();maxQuantity();");
 				var nodename = document.createTextNode(product_details[i][1]);
@@ -271,7 +278,7 @@ function searchProduct(){
 				var node = document.createElement("button");
 				node.setAttribute("class", "item-button");
 				node.setAttribute("value" , product_details[i][0]);
-				node.setAttribute("value1", prod_quantity);
+				node.setAttribute("value1", p_quantity);
 				node.setAttribute("type", "submit");
 				node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();maxQuantity();");
 				var nodename = document.createTextNode(product_details[i][1]);
