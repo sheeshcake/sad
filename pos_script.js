@@ -32,34 +32,35 @@ function off() {
 //Change Done Transaction To Quantity Vice Versa
 function change(val){
 	var tag;
-	if(val == 1){
-		if((tag = document.getElementById("cash").id) || (tag = document.getElementById("delete").id) || (tag = document.getElementById("cash").id)){
-			tag.id = "quantity";
-			document.getElementById("quantity").type = "number";
-			tag.placeholder = "Input Quantity";
-		}
-	}
-	else if(val == 0){
-		if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("delete").id)){
-			tag.id = "cash";
-			document.getElementById("quantity").type = "number";
-			tag.placeholder = "Input Cash";
-		}
-	}
-	else if(val == 3){
-		if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("cash").id)){
-			tag.id = "delete";
-			document.getElementById("quantity").type = "text";
-			tag.placeholder = "Input Product Name or ID";
-		}
-	}
-	else{
-		if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("cash").id)){
-			tag.id = "delete";
-			document.getElementById(tag).type = "text";
-			tag.placeholder = "Input Product Name or ID to delete";
-		}
-	}
+	
+	// if(val == 1){
+	// 	if((tag = document.getElementById("cash").id) || (tag = document.getElementById("delete").id) || (tag = document.getElementById("cash").id)){
+	// 		tag.id = "quantity";
+	// 		document.getElementById("quantity").type = "number";
+	// 		tag.placeholder = "Input Quantity";
+	// 	}
+	// }
+	// else if(val == 0){
+	// 	if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("delete").id)){
+	// 		tag.id = "cash";
+	// 		document.getElementById("quantity").type = "number";
+	// 		tag.placeholder = "Input Cash";
+	// 	}
+	// }
+	// else if(val == 3){
+	// 	if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("cash").id)){
+	// 		tag.id = "delete";
+	// 		document.getElementById("quantity").type = "text";
+	// 		tag.placeholder = "Input Product Name or ID";
+	// 	}
+	// }
+	// else{
+	// 	if((tag = document.getElementById("quantity").id) || (tag = document.getElementById("cash").id)){
+	// 		tag.id = "delete";
+	// 		document.getElementById(tag).type = "text";
+	// 		tag.placeholder = "Input Product Name or ID to delete";
+	// 	}
+	// }
 }
 
 
