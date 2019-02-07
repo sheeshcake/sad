@@ -1,14 +1,8 @@
 <?php
-	header("Expires: Thu, 19 Nov 1981 08:52:00 GMT");
-	header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
-	header("Pragma: no-cache");
  
-	require 'connect.php';
+require 'connect.php';
 
-	session_start();
-	if(isset($_SESSION['name'])){
-		header("location: main_menu.php");
-	}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="inputbox_style.css">
 	<link rel="stylesheet" type="text/css" href="button_style.css">
 
-	<title>POS</title>
+	<title>Fucking POS</title>
 
 </head>
 <body>
@@ -38,32 +32,37 @@
 	  	<div><span>
 	  		<img class="logo" src="logo.png"></img>
 	  	</span></div>
-	    <h1 class="heading">Point Of Sales</h1>
-	    <h2 class="heading">By Dy and Cabillian</h2>
+	    <h1 class="heading">F*cking POS</h1>
+	    <h2 class="heading">By HalfByte</h2>
 	    </a> </div>
-	  	<a class="smoothscroll" href="#login">
+	  	<a class="smoothscroll" href="#signup">
 	  	<div class="scroll-down"></div>
 		</a>
 	</header>
 
-	<!-- Login-->
-	<section id="login">
+	<!-- Signup-->
+	<section id="signup">
 		<div class="container">
 			<div class="row">
-				<h1>Login</h1>
+				<h1>Signup</h1>
 				<div class="block" style="width: 10%"></div>
 			</div>
 		</div>
-		<form method="POST" action="login_controller.php">
+		<form method="POST" action="signup_controller.php">
 			<center>
 				<div class="login_container">
 					<div class="group">
-					    <input type="username" required name="usrnm">
+					    <input type="name" required name="name">
 					    <span class="highlight"></span>
 					    <span class="bar"></span>
-					    <label>Username</label>
+					    <label>Name</label>
 					    </div>
-					      
+					    <div class="group">      
+					      <input type="username" required name="usrnm">
+					      <span class="highlight"></span>
+					      <span class="bar"></span>
+					      <label>Username</label>
+					    </div>
 					    <div class="group">      
 					      <input type="password" required name="psswrd">
 					      <span class="highlight"></span>
@@ -71,8 +70,12 @@
 					      <label>Password</label>
 					    </div>
 					    <button class="btn" type="submit" name="submit">
-			    			<span>Log-in</span>
+			    			<span>Sign-Up</span>
 						</button>
+						<a href='login.php#login'>
+			    			<span>Login</span>
+						</a>
+					</div>
 				</div>
 			</center>
 		</form>
@@ -100,5 +103,3 @@
 
 
 </html>
-
-

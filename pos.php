@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FUCKING POS</title>
+    <title>POS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="pos_style.css" />
     <link rel="stylesheet" type="text/css" href="button_style.css" />
@@ -58,6 +58,7 @@
             <button class="btn" onclick="javascript:off('overlay');"><span>GO</span></button>
         </center>
     </div>
+
     <!-- <div id="delete" class="delete">
         <center>
             <form action="javascript: off();">
@@ -102,7 +103,7 @@
                 ?>
         </div>
         <div class="item3">
-            <button style="width: 100%" onclick ="javascript: change(0); on();">
+            <button style="width: 100%" onclick ="javascript: change(0); on(); pay_order();">
                 Done Transaction
             </button>
             <button style="width:100%;" onclick="javascript: change(2); on();">

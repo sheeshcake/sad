@@ -1,3 +1,11 @@
+//Variables
+var sum = 0;
+var num = 0;
+var product_details = [];
+var counter = 0;
+var lastnum = 0;
+
+
 // Side Nav Section //
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -46,7 +54,6 @@ function getTotal() {
 
 	var price = document.querySelectorAll("td:nth-child(4)");
 	var quantity = document.querySelectorAll("td:nth-child(3)");
-	var sum = 0;
 	if(price != NaN && quantity != NaN){
 		for (var i = 0; i < price.length; i++) {
 		   var priceval = parseFloat(price[i].firstChild.data);
@@ -60,11 +67,6 @@ function getTotal() {
 
 }
 
-//Variables
-var num = 0;
-var product_details = [];
-var counter = 0;
-var lastnum = 0;
 
 //Getting the ID
 
@@ -157,19 +159,20 @@ function getProducts(name, price, id,prod_quantity){
 	var itemname = document.createElement("td");
 	var nodename = document.createTextNode(name);
 	itemname.setAttribute("contenteditable", "true");
-	itemname.setAttribute("onfocusout","on('overlay')");
+	itemname.setAttribute("onfocusout","javascript:on('overlay');getName(this.innerHTML);");
 	itemname.appendChild(nodename);
 	
 	var itemquantity = document.createElement("td");
 	var nodequantity = document.createTextNode(prod_quantity);
 	itemquantity.setAttribute("contenteditable", "true");
-	itemquantity.setAttribute("onfocusout","on('overlay')");
+	itemquantity.setAttribute("onfocusout","javascript:on('overlay');getName(this.innerHTML);");
 	itemquantity.appendChild(nodequantity);
 
 	var itemprice = document.createElement("td");
 	var nodeprice = document.createTextNode(price);
+	var cell_name = 
 	itemprice.setAttribute("contenteditable", "true");
-	itemprice.setAttribute("onfocusout","on('overlay')");
+	itemprice.setAttribute("onfocusout","javascript:on('overlay');getName(thisinnerHTML);");
 	itemprice.appendChild(nodeprice);
 
 	var node1 = document.createElement("tr");
@@ -256,3 +259,10 @@ function searchProduct(){
 
 }
 
+function getName(cell_name){
+	alert(cell_name);
+}
+
+function saveChanges(){
+
+}

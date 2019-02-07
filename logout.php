@@ -1,8 +1,20 @@
 <?php
-
-	include "connect.php";
 	session_start();
+	unset($_SESSION['name']);
 	session_destroy();
-	header("Location: login.php");
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>F*CKING POS</title>
+</head>
+<body>
+
+	<p>Logging out...
+		<?php
+			header("location: main_menu.php");
+		?></p>
+
+</body>
+</html>

@@ -1,9 +1,14 @@
 //Variables
 var num = 0;
+var sum = 0;
 var product_details = [];
+var reciept_item = [];
 var counter = 0;
 var lastnum = 0;
+var amount = 0;
+var itemNumber = 0;
 var p_quantity = 0;
+var quantity;
 
 
 // Side Nav Section //
@@ -26,15 +31,62 @@ function off() {
 	if(document.getElementById("quantity")){
 		verifyItems();
 	}
+	if(document.getElementById("cash")){
+		pay_order();
+	}
 }
 
 
 //Change Done Transaction To Quantity Vice Versa
 function change(val){
 	var tag;
-	
+	if(document.getElementById("quantity")){
+		tag = document.getElementById("quantity");
+	}
+	else if(document.getElementById("cash")){
+		tag = document.getElementById("cash");
+	}
+	else if(document.getElementById("delete")){
+		tag = document.getElementById("delete");
+	}
+
+	if(val == 0){
+		if(!(tag.id == "cash")){
+			tag.id = "cash";
+			document.getElementById("cash").type = "number";
+			tag.placeholder = "Input Cash";
+		}
+	}
+	else if(val == 1){
+		if(!(tag.id == "quantity")){
+			tag.id = "quantity";
+			document.getElementById("quantity").type = "number";
+			tag.placeholder = "Input Quantity";
+		}
+	}
+	else if(val == 2){
+		if(!(tag.id == "delete")){
+			tag.id = "delete";
+			document.getElementById("delete").type = "number";
+			tag.placeholder = "Input ID or Name";
+		}
+	}
+	else if(val == 2){
+		if(!(tag.id == "delete")){
+			tag.id = "delete";
+			document.getElementById("delete").type = "number";
+			tag.placeholder = "Input ID or Name";
+		}
+	}
+	// else if(val == 3){
+	// 	if(!(tag.id == "quantity")){
+	// 		tag.id = "quantity";
+	// 		document.getElementById("quantity").type = "number";
+	// 		tag.placeholder = "Input Quantity";
+	// 	}
+	// }
 	// if(val == 1){
-	// 	if((tag = document.getElementById("cash").id) || (tag = document.getElementById("delete").id) || (tag = document.getElementById("cash").id)){
+	// 	if((tag = document.getElementById("cash").id) || (tag = document.getElementById("delete").id) || (tag = document.getElementById("delete").id)){
 	// 		tag.id = "quantity";
 	// 		document.getElementById("quantity").type = "number";
 	// 		tag.placeholder = "Input Quantity";
@@ -80,7 +132,6 @@ function getTotal() {
 
 	var price = document.querySelectorAll("td:nth-child(4)");
 	var quantity = document.querySelectorAll("td:nth-child(3)");
-	var sum = 0;
 	if(price != NaN && quantity != NaN){
 		for (var i = 0; i < price.length; i++) {
 		   var priceval = parseFloat(price[i].firstChild.data);
@@ -96,8 +147,6 @@ function getTotal() {
 
 
 //Getting the ID
-
-var itemNumber = 0;
 function buttonValues(id, quantity){
 	itemNumber = parseInt(id) - 1;
 	p_quantity = parseInt(quantity);
@@ -175,25 +224,24 @@ function orderedProducts(){
 	itemprice.appendChild(nodeprice);
 	
 	var itemamount = document.createElement("td");
-	var amount = parseInt(price) * (quantity + lastnum);
-	// if((p_quantity - amount) > 0){
-	// 	alert("tangina" + (p_quantity - quantity));
-	// }
-	// else{
-		var nodeamount = document.createTextNode("" + amount);
-		itemamount.appendChild(nodeamount);
-		var node1 = document.createElement("tr");
-		node1.setAttribute("id", itemNumber+1);
-		node1.setAttribute("onclick", "javascript: change(1); on();");
-	    node1.appendChild(itemid);
-	    node1.appendChild(itemname);
-	    node1.appendChild(itemquantity);
-	    node1.appendChild(itemprice);
-	    node1.appendChild(itemamount);
-	    document.getElementById("table").appendChild(node1);
-	    counter++;
-	    getTotal();
-	// }
+	amount = parseInt(price) * (quantity + lastnum);
+
+
+	var nodeamount = document.createTextNode("" + amount);
+	itemamount.appendChild(nodeamount);
+	var node1 = document.createElement("tr");
+	node1.setAttribute("id", itemNumber+1);
+	node1.setAttribute("onclick", "javascript: change(3); on();");
+	node1.appendChild(itemid);
+	node1.appendChild(itemname);
+	node1.appendChild(itemquantity);
+	node1.appendChild(itemprice);
+	node1.appendChild(itemamount);
+	document.getElementById("table").appendChild(node1);
+	// alert(counter);
+	counter++;
+	getData();
+	getTotal();
 }
 
 
@@ -218,7 +266,7 @@ function getProducts(name, price, id, prod_quantity){
 	node.setAttribute("value" , id);
 	node.setAttribute("value1", prod_quantity);
 	node.setAttribute("type", "submit");
-	node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();maxQuantity();");
+	node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();change(1);maxQuantity();");
 	var nodename = document.createTextNode(name);
 	node.appendChild(nodename);
 	document.getElementById("prod").appendChild(node);
@@ -256,7 +304,7 @@ function searchProduct(){
 				node.setAttribute("value" , product_details[i][0]);
 				node.setAttribute("value1", p_quantity);
 				node.setAttribute("type", "submit");
-				node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();maxQuantity();");
+				node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();change(1);maxQuantity();");
 				var nodename = document.createTextNode(product_details[i][1]);
 				node.appendChild(nodename);
 				document.getElementById("prod").appendChild(node);
@@ -281,7 +329,7 @@ function searchProduct(){
 				node.setAttribute("value" , product_details[i][0]);
 				node.setAttribute("value1", p_quantity);
 				node.setAttribute("type", "submit");
-				node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();maxQuantity();");
+				node.setAttribute("onclick", "javascript: buttonValues(this.value, this.getAttribute('value1'));on();change(1);maxQuantity();");
 				var nodename = document.createTextNode(product_details[i][1]);
 				node.appendChild(nodename);
 				document.getElementById("prod").appendChild(node);
@@ -307,6 +355,51 @@ function maxQuantity(){
 
 
 function pay_order(){
+	var customer_cash = parseInt(document.getElementById("cash").value);
+	var total_amount = sum;
+
+	if((customer_cash - total_amount) >= 0){
+		alert("Change: " + (customer_cash - total_amount));
+		// window.location.href = 'reciept.php';
+	}
+
+}
+
+function load_reciept(){
+	for(var i = 0; i < counter; i++){
+		var nodename = document.createElement("td");
+		var textamount = document.createTextNode(reciept_item[i][1]);
 
 
+		var nodeprice = document.createElement("td");
+		var textamount = document.createTextNode(reciept_item[i][2]);
+
+
+		var nodequantity = document.createElement("td");
+		var textamount = document.createTextNode(reciept_item[i][3]);
+		
+		var nodeamount = document.createElement("td");
+		var textamount = document.createTextNode(reciept_item[i][4]);
+
+		var nodetable = document.createElement("tr");
+		nodetable.appendChild(nodename);
+		nodetable.appendChild(nodeprice);
+		nodetable.appendChild(nodequantity);
+		nodetable.appendChild(nodeamount);
+		document.getElementById("item_table").appendChild(nodetable);
+	}
+}
+
+
+function getData(){
+	// alert(product_details[parseInt(itemNumber)][1] + " " + product_details[parseInt(itemNumber)][2] + " " + (quantity + lastnum) + " " + amount);
+	// reciept_item[parseInt(counter)][0] = product_details[parseInt(itemNumber)][1].toString;
+	// reciept_item[parseInt(counter)][1] = product_details[parseInt(itemNumber)][2].toString;
+	// reciept_item[parseInt(counter)][2] = (quantity + lastnum).toString;
+	// reciept_item[parseInt(counter)][3] = amount.toString;
+}
+
+
+function deleteItem(){
+	//to be added
 }

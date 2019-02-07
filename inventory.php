@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FUCKING POS</title>
+    <title>POS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="inventory_style.css" />
     <link rel="stylesheet" type="text/css" href="inputbox_style.css" />
@@ -51,7 +51,7 @@
         <center>
             <div class="prompt" style="padding: 2%;">
                 <h3>Save Changes?</h3>
-                <button>Yes</button><button>No</button>
+                <button onclick="javascript">Yes</button><button>No</button>
             </div>
         </center>
     </div>
@@ -91,8 +91,8 @@
                     ?>
                     <tfoot>
                         <th>Add Product:</th>
-                        <th onfocusout="on('add')" contenteditable="true"></th>
-                        <th onfocusout="on('add')" contenteditable="true"></th>
+                        <th onfocusout="on('overlay')" contenteditable="true"></th>
+                        <th onfocusout="on('overlay')" contenteditable="true"></th>
                         <th onfocusout="on('overlay')" contenteditable="true"></th>
                     </tfoot>
                 </table>

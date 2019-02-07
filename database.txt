@@ -1,0 +1,41 @@
+insert into products(product_name, product_price, product_quanity)
+values
+('Dove(shampoo)',7,0),
+('Palmolive', 7,10),
+('Cream Silk',7,10),
+('Dove(conditioner))',7,10),
+('Tanuday(jr))',40,10),
+('Tanduay(sr))',55,10),
+('Tanduay(long neck)',110,10),
+('item1',1,10),
+('item2',2,10),
+('item3',3,10),
+('item4',4,10),
+('item5',5,10),
+('item6',6,10),
+('item7',7,10),
+('item8',8,10),
+('item9',9,10),
+('item10',10,10),
+('item11',11,10),
+('item12',12,10);
+
+
+                <?php
+                    $sql = 'SELECT product_name from products';
+                    $query = mysqli_query($conn, $sql);
+                    while ($row  = mysqli_fetch_array($query)) {
+                    echo "<script>getProducts('". $row['product_name'] ."');</script>";
+                    }
+                ?>
+
+
+
+            <form method="POST" action="click.php">
+                <input type="hidden" name="btn-value" value="click-s">
+                <button type="submit">shabu</button>
+            </form>
+            <form method="POST" action="click.php">
+                                <input type="hidden" name="btn-value" value="click-d">
+                <button type="submit">shabu1</button>
+            </form>

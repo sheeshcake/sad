@@ -1,0 +1,3 @@
+ED i butang nang folder nga "sad_point_of_sales" sa C:/xampp/htdocs/
+tas i import nang "sad_system.sql" sa "database" nga folder sulod anang "sad_point_of_sales" nga folder
+tas open link na dayon "localhost/sad_point_of_sales"

@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="button_style.css">
 	<script type="text/javascript" src="jquery-3.3.1.js"></script>
 	<script type="text/javascript" src="main_script.js"></script>
-	<title>Fucking POS</title>
+	<title>POS</title>
 </head>
 <body>
 		<!-- Header Section
@@ -30,6 +30,7 @@
 	      <div class="mobile-toggle"> <span></span> <span></span> <span></span> </div>
 	      <nav>
 	        <ul>
+						<li><a class="smoothscroll" href="profile.php"><?php echo $_SESSION['name']; ?></a></li>
 	          <li><a class="smoothscroll" href="pos.php">Point Of Sale</a></li>
 	          <li><a class="smoothscroll" href="inventory.php">Inventory</a></li>
 	          <li><a class="smoothscroll" href="history.php">Transaction History</a></li>
@@ -42,7 +43,7 @@
 	  <div class="title">
 	    <div><span><img class="logo" src="logo.png"></img></span></div>
 	    <h1 class="heading">Welcome <?php echo $_SESSION['name']; ?>!</h1>
-	    <h2 class="heading">By HalfByte</h2>
+	    <h2 class="heading">By Dy and Cabillian</h2>
 	    <a class="smoothscroll" href="#menu">
 	    <div class="mouse">
 	      <div class="wheel"></div>
@@ -82,7 +83,7 @@
 
 	<footer>
 	  <div class="container">
-	      <p>HalfByte ©2018 Copyright.</p>
+	      <p>Dy & Cabillian	 ©2018 Copyright.</p>
 	    </div>
 	</footer>
 

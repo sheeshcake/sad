@@ -1,12 +1,11 @@
-<?php
+<?php  
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$database = "rating_system";
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $database);
-	// Check connection
+	$database = "sad_system";
+	$conn = mysqli_connect($servername, $username,$password, $database);
 	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
+    	die("Connection failed: " . $conn->connect_error);
+	} 
+	
 ?>
