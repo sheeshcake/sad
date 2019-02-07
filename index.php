@@ -1,11 +1,15 @@
+<?php
+	include "connect.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fucking POS</title>
+	<title>Redirecting</title>
 </head>
 <body>
-	<p > REDIRECTING.....<script>window.location.href='login.php';</script> </p>
+	<center>
+		<?php header("Location: login.php"); ?>
+		<h1>REDIRECTING..</h1>
+	</center>
 </body>
-
-
 </html>
